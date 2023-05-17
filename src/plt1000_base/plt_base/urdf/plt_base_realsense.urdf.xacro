@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="plt_base">
+  <xacro:include filename="$(find realsense_ros_gazebo)/xacro/tracker.xacro"/>
+  <xacro:include filename="$(find realsense_ros_gazebo)/xacro/depthcam.xacro"/>
+
+  <!-- <link name="world" >
+    <inertial>
+      <mass value="1.0" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0"
+                iyy="0.01" iyz="0.0" izz="0.01" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      
+      <material name="White" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link> -->
+
+  
+  <!-- <link name="world"/>
+  <joint name="world_to_baselink" type="fixed">
+    <axis rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_footprint"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint> -->
+
+  <link
+    name="world">
+  </link>  
+ 
+  <joint name="world_to_baselink" type="floating">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin
+        xyz="0 0 0.11"
+        rpy="0 0 0" />
+  </joint>
+
+  <link
+    name="virtual_world">
+  </link>  
+ 
+  <joint name="world_to_virtualworld" type="fixed">
+    <parent link="world"/>
+    <child link="virtual_world"/>
+    <origin
+        xyz="0 0 0.404"
+        rpy="0 0 0" />
+    <!-- rpy="-1.547 0.019 -1.848" -->
+  </joint>
+
+  <link name="base_link">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="2.2204E-16 0.013295 0.040252"
+        rpy="0 0 0" />
+      <mass
+        value="0.47" />
+      <inertia
+        ixx="9.2103"
+        ixy="-2.0001E-13"
+        ixz="4.1749E-15"
+        iyy="0.85525"
+        iyz="0.070993"
+        izz="8.4727" />
+    </inertial>
+    <!-- <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual> -->
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_link1">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="-0.040898 2.479E-05 7.7704E-06"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.037957"
+        ixy="4.2837E-17"
+        ixz="-3.3487E-16"
+        iyy="0.02467"
+        iyz="1.376E-06"
+        izz="0.024666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.0 0 0"
+        rpy="0 0.0 0" />
+      <geometry>
+        <mesh  filename="package://plt_base/meshes/left_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.04 0 0"
+        rpy="0 1.5707 0" />
+      <geometry>
+        <cylinder length="0.08" radius="0.1" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_joint1"
+    type="continuous">
+    <origin
+      xyz="0.2695 0.43973 -0.011235"
+      rpy="-1.7227 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_link1" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="left_link2">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="0.040898 -2.5979E-05 -1.0547E-15"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.037957"
+        ixy="9.2377E-17"
+        ixz="-3.2673E-16"
+        iyy="0.02467"
+        iyz="8.6736E-19"
+        izz="0.024665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/left_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/left_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_joint2"
+    type="continuous">
+    <origin
+      xyz="0.2695 0.20073 -0.019019"
+      rpy="-1.83 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_link2" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="left_link3">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="0.040898 -2.5979E-05 -8.3267E-16"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.037957"
+        ixy="1.9457E-16"
+        ixz="-2.7564E-16"
+        iyy="0.02467"
+        iyz="1.7347E-18"
+        izz="0.024665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/left_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/left_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_joint3"
+    type="continuous">
+    <origin
+      xyz="0.2695 -0.038141 -0.026799"
+      rpy="-2.1593 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_link3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="left_link4">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="-0.040898 -2.3741E-05 -1.0548E-05"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.037957"
+        ixy="3.3269E-16"
+        ixz="6.2629E-17"
+        iyy="0.024669"
+        iyz="1.7889E-06"
+        izz="0.024666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/left_link4.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/left_link4.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_joint4"
+    type="continuous">
+    <origin
+      xyz="0.2695 -0.2779 -0.034607"
+      rpy="2.9325 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_link4" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="right_link1">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="-0.040898 -2.479E-05 7.7704E-06"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.037957"
+        ixy="4.6546E-17"
+        ixz="3.3369E-16"
+        iyy="0.02467"
+        iyz="-1.376E-06"
+        izz="0.024666" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh  filename="package://plt_base/meshes/right_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://plt_base/meshes/right_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_joint1"
+    type="continuous">
+    <origin
+      xyz="-0.2695 0.43973 -0.011235"
+      rpy="1.7227 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_link1" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_link2">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="9.8636E-06 2.4034E-05 0.040898"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.024666"
+        ixy="1.6934E-06"
+        ixz="-2.6639E-16"
+        iyy="0.02467"
+        iyz="2.1217E-16"
+        izz="0.037957" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/right_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/right_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_joint2"
+    type="continuous">
+    <origin
+      xyz="-0.2695 0.20073 -0.019019"
+      rpy="1.5708 -0.64868 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_link2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="right_link3">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="2.3696E-05 -1.065E-05 0.040898"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.024669"
+        ixy="-1.8027E-06"
+        ixz="2.8915E-16"
+        iyy="0.024666"
+        iyz="1.7935E-16"
+        izz="0.037957" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/right_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/right_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_joint3"
+    type="continuous">
+    <origin
+      xyz="-0.2695 -0.038141 -0.026799"
+      rpy="-1.5708 -0.55992 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_link3" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="right_link4">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="-3.628E-07 -2.5976E-05 0.040898"
+        rpy="0 0 0" />
+      <mass
+        value="3.377" />
+      <inertia
+        ixx="0.024665"
+        ixy="6.7322E-08"
+        ixz="8.2625E-17"
+        iyy="0.02467"
+        iyz="3.277E-16"
+        izz="0.037957" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/right_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/right_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_joint4"
+    type="continuous">
+    <origin
+      xyz="-0.2695 -0.2779 -0.034607"
+      rpy="-1.5708 -1.3478 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_link4" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <joint name="gimbal_joint_" type="fixed">
+      <origin xyz="0.0 -0.5 0.34" rpy="0 0 1.5708"/>
+      <parent link="base_link"/>
+      <child link="gimbal_link"/>
+  </joint>
+  
+  <link
+    name="gimbal_link">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="0.000434 0.00012166 0.0056729"
+        rpy="0 0 0" />
+      <mass
+        value="0.012717" />
+      <inertia
+        ixx="1.6406E-06"
+        ixy="1.7066E-10"
+        ixz="3.4587E-11"
+        iyy="1.6487E-06"
+        iyz="6.9013E-11"
+        izz="3.0466E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="gimbal_y_link">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="0.011007 -0.0016306 0.020198"
+        rpy="0 0 0" />
+      <mass
+        value="0.0061357" />
+      <inertia
+        ixx="2.3364E-06"
+        ixy="1.2116E-07"
+        ixz="-1.0996E-06"
+        iyy="3.1363E-06"
+        iyz="1.6289E-07"
+        izz="1.6753E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_y_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_y_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gimbal_y_joint"
+    type="revolute">
+    <origin
+      xyz="0.00035623 0.00035088 0.0121"
+      rpy="0 0 0.0" />
+    <parent
+      link="gimbal_link" />
+    <child
+      link="gimbal_y_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-6.2831852"
+      upper="6.2831852"
+      effort="15"
+      velocity="20" />
+    <dynamics damping="0.7" friction="0.7" />
+  </joint>
+  <link
+    name="gimbal_r_link">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="-0.013874 -0.015984 0.0010653"
+        rpy="0 0 0" />
+      <mass
+        value="0.034025" />
+      <inertia
+        ixx="5.4069E-06"
+        ixy="-1.9382E-06"
+        ixz="1.3472E-07"
+        iyy="5.5032E-06"
+        iyz="1.4803E-07"
+        izz="7.7128E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_r_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gimbal_r_joint"
+    type="fixed">
+    <origin
+      xyz="0.027698 0.0013607 0.0565"
+      rpy="0.0 0 0" />
+    <parent
+      link="gimbal_y_link" />
+    <child
+      link="gimbal_r_link" />
+    <axis
+      xyz="0.99882 0.048597 0" />
+  </joint>
+  <link
+    name="gimbal_p_link">
+    <gravity>true</gravity>
+    <inertial>
+      <origin
+        xyz="0.0085569 0.034636 -0.014004"
+        rpy="0 0 0" />
+      <mass
+        value="0.011655" />
+      <inertia
+        ixx="8.1984E-06"
+        ixy="-1.2158E-06"
+        ixz="1.8015E-07"
+        iyy="1.1412E-06"
+        iyz="1.1918E-06"
+        izz="8.6005E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://plt_base/meshes/gimbal_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gimbal_p_joint"
+    type="revolute">
+    <origin
+      xyz="-0.040574 -0.014575 0.0012157"
+      rpy="0 -0.0 0" />
+    <parent
+      link="gimbal_r_link" />
+    <child
+      link="gimbal_p_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="15"
+      velocity="20" />
+  </joint>
+  
+  <xacro:realsense_d435 sensor_name="d435i" parent_link="gimbal_p_link" rate="30">
+    <origin rpy="0 0 3.1415926 " xyz="0 0.05 0.0"/>
+  </xacro:realsense_d435>
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_joint1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_joint2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_joint3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_joint4">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_joint1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_joint2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_joint3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_joint4">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor8">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="tran10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="gimbal_p_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor10">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="gimbal_y_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor11">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+       <legacyModeNS>true</legacyModeNS>  
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>body_imu</topicName>
+        <bodyName>base_link</bodyName>
+        <updateRateHZ>200.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="depth_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>d435i/imu</topicName>
+        <bodyName>gimbal_p_link</bodyName>
+        <updateRateHZ>200</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0.0 0.0 0.0</xyzOffset>
+        <rpyOffset>0.0 0.0 0.0</rpyOffset>
+        <frameName>gimbal_p_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>gimbal_p_link</bodyName>
+      <topicName>ground_truth/state</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>gimbal_link</bodyName>
+      <topicName>ground_truth/feedback</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo reference="right_link1">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="left_link1">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+<gazebo reference="right_link2">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="left_link2">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="right_link3">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="left_link3">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="right_link4">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="left_link4">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="10000000.0" />
+    <kd value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+</robot>

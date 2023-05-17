@@ -1,0 +1,5 @@
+<launch>	  
+
+	<node pkg="gimbal_controller" type="gimbal_controller_node" name="gimbal_controller_node" output="screen"/>
+
+</launch>

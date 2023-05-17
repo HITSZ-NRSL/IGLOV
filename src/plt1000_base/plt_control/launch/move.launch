@@ -1,0 +1,23 @@
+<launch>
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find plt_control)/config/plt_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="base_controller_spawner" pkg="controller_manager" type="spawner"
+       args="joint_state_controller plt_velocity_controller joint11_velocity_controller joint10_velocity_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- To make the interface of simulation identical to real XBot -->
+  <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
+  <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"  args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager">
+    <param name="yaml_cfg_file" value="$(find plt_control)/config/mux.yaml"/>
+    <remap from="cmd_vel_mux/output/cmd_vel" to="plt_velocity_controller/cmd_vel"/>
+  </node>
+
+  <node pkg="plt_control" name="control_py" type="control.py"  required="false" />
+
+  <!-- <node pkg="plt_control" name="train_hand" type="robot_keyboard_teleop.py" launch-prefix="xterm -e" required="false"> -->
+  <!-- </node> -->
+</launch>

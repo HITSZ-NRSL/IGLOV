@@ -1,0 +1,16 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="world_name" value="$(find plt_gazebo)/worlds/scene_gwterrain_plane.world"/>
+  </include>
+    
+  <!-- Model setup -->
+  <arg name="model" default="$(find plt_base)/urdf/plt_base_realsense.urdf.xacro"/>
+
+  <!-- spawn urdf model to gazebo -->
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node  name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x 15 -y -3.0 -z 0.2 -Y -1.5708 -unpause -urdf -model plt_base -param robot_description" respawn="false" output="screen" />
+  
+  <include file="$(find plt_control)/launch/move.launch" />
+
+</launch>

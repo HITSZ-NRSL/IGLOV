@@ -1,0 +1,17 @@
+material vrc/grass_water_terrain
+{
+  receive_shadows on
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				scale 1 1
+				texture grass_water_terrain.png
+				filtering anistropic
+				max_anisotropy 16
+			}
+		}
+	}
+}

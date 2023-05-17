@@ -1,0 +1,10 @@
+<launch>	  
+
+	<node pkg="view_planning" type="view_planning_node" name="view_planning_node" output="screen"/>
+
+  <node pkg="gimbal_controller" type="gimbal_controller_node" name="gimbal_controller_node" output="screen"/>
+
+	<!--rviz-->
+	<node pkg="rviz" type="rviz" name="path_rviz" args="-d $(find view_planning)/config/orbslam_info.rviz" respawn="true" respawn_delay="5"/>
+
+</launch>
