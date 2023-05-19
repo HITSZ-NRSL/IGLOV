@@ -95,4 +95,4 @@ Then press the key 'r'(lowercase), the robot base will follow the preset traject
  SLAM in **IGLOV** is based on [ORB-SLAM2](https://github.com/raulmur/ORB_SLAM2).
 
 ## LICENSE
-The source code is released under GPLv3 license.
+The source code is released under GPLv2 license.
