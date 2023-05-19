@@ -86,10 +86,13 @@ roslaunch view_planning view_planning.launch
 **Robot Base**
 
 ```bash
-cd {YOUR_PATH}//IGLOV/src/plt1000_base/plt_control/src
+cd {YOUR_PATH}/IGLOV/src/plt1000_base/plt_control/src
 python robot_keyboard_teleop.py 
 ```
 Then press the key 'r'(lowercase), the robot base will follow the preset trajectory.
 
 ## 5. Acknowledgments
  SLAM in **IGLOV** is based on [ORB-SLAM2](https://github.com/raulmur/ORB_SLAM2).
+
+## LICENSE
+The source code is released under GPLv3 license.
