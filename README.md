@@ -12,15 +12,15 @@ Authors: [Zhihao Wang](https://github.com/nixwang), [Haoyao Chen](https://github
 
 If you use IGLOV for your academic research, please cite the following paper [[pdf](https://arxiv.org/pdf/2211.06557.pdf)]. 
 ```
-@ARTICLE{9830851,  
-  author={Zhihao Wang, Haoyao Chen, Shiwu Zhang, Yunjiang Lou},  
-  journal={IEEE Transactions on Mechatronics},  
-  title={Active View Planning for Visual SLAM in Outdoor Environments Based on Continuous Information Modeling},   
-  year={2023},  
-  volume={},  
-  number={},  
-  pages={},  
-  doi={}}
+@ARTICLE{10129820,
+  author={Wang, Zhihao and Chen, Haoyao and Zhang, Shiwu and Lou, Yunjiang},
+  journal={IEEE/ASME Transactions on Mechatronics}, 
+  title={Active View Planning for Visual SLAM in Outdoor Environments Based on Continuous Information Modeling}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-12},
+  doi={10.1109/TMECH.2023.3272910}}
 ```
   
 
@@ -37,7 +37,7 @@ If you use IGLOV for your academic research, please cite the following paper [[p
 </div>
 
 
-**Video links:** [Youtube](https://youtu.be/O2XMyuhtGVk) or [Bilibili](https://www.bilibili.com/video/BV1co4y1w7cQ).
+**Video links:** [Youtube](https://youtu.be/VZ8mD9II9f8) or [Bilibili](https://www.bilibili.com/video/BV1co4y1w7cQ).
 
 
 ## 2. Installation
