@@ -10,7 +10,7 @@
 
 Authors: [Zhihao Wang](https://github.com/nixwang), [Haoyao Chen](https://github.com/HitszChen) from the [Networked RObotics and Sytems Lab](http://www.nrs-lab.com), Shiwu Zhang, and Yunjiang Lou.
 
-If you use IGLOV for your academic research, please cite the following paper [[pdf](https://arxiv.org/pdf/2211.06557.pdf)]. 
+If you use IGLOV for your academic research, please cite the following paper [[pdf](https://ieeexplore.ieee.org/document/10129820)]. 
 ```
 @ARTICLE{10129820,
   author={Wang, Zhihao and Chen, Haoyao and Zhang, Shiwu and Lou, Yunjiang},
