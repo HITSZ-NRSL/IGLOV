@@ -45,7 +45,7 @@ Tested on Ubuntu 16.04 and 18.04.
 
 - Install ROS packages
 ```
-sudo apt-get install ros-$(rosversion)-octomap-ros ros-$(rosversion)-octomap-msgs ros-$(rosversion)-yocs-cmd-vel-mux ros-$(rosversion)-pcl-ros
+sudo apt-get install ros-(rosversion)−octomap−rosros−(rosversion)-octomap-ros ros-(rosversion)-octomap-msgs ros-(rosversion)−yocs−cmd−vel−muxros−(rosversion)-yocs-cmd-vel-mux ros-(rosversion)-pcl-ros
 ```
 
 ```
@@ -57,7 +57,7 @@ catkin build
 
 - Add Gazebo model path
 ```
-export GAZEBO_MODEL_PATH=$YOUR_PATH$/IGLOV/src/plt1000_base/plt_gazebo/models:$GAZEBO_MODEL_PATH
+export GAZEBO_MODEL_PATH=YOURPATHYOUR_PATH/IGLOV/src/plt1000_base/plt_gazebo/models:$GAZEBO_MODEL_PATH
 ```
 
 ## 3. Run examples
@@ -73,7 +73,7 @@ roslaunch plt_gazebo gazebo_realsense.launch
 
 ```bash
 cd {YOUR_PATH}/IGLOV
-roslaunch orb_slam_2_ros orb_slam2_d435_rgbd_realsense.launch
+roslaunch orb_slam2_ros orb_slam2_d435_rgbd_realsense.launch
 ```
 
 **View Planning**
